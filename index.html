@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="arc-gauge-examples">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="author" content="https://plus.google.com/u/0/+IndriMuska" />
+		<title>jQuery D3 Arc Tween Gauge</title>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css" rel="stylesheet">
+		<style>
+		.page-header { margin-bottom: 80px; }
+		.page-footer { margin: 80px 0 40px; border-top: 1px solid #eee;}
+		.example { margin-bottom: 40px; }
+		.example h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; margin: 0 0 20px; text-align: center; }
+		.example pre { position: relative; box-shadow: 0 1px 1px rgba(0,0,0,0.2); padding-right: 50px; }
+		.example pre:before { content: attr(class); position: absolute; top: 0; right: 0; text-transform: uppercase; letter-spacing: 1px; color: #767676;
+			font-weight: 700; font-size: 10px; border-bottom-left-radius: 4px; background: #fff; border-bottom: 1px solid #e1e1e8; border-left: 1px solid #e1e1e8;
+			padding: 5px 8px; }
+		.example pre+pre { margin-top: 20px; }
+		.example pre>code { background: none; }
+		.example .result { text-align: center; }
+		.example .arc-gauge-4 { display: inline-block; margin: 0 8px; }
+		.example .arc-gauge-7 { position: relative; }
+		.example .arc-gauge-7 .arc-gauge-text { font-size: 25px; font-weight: 100; position: absolute; width: 100%; text-align: center; top: 58px; }
+		.example .arc-gauge-7 .arc-gauge-text .small { font-size: 16px; font-weight: 200; color: #666; }
+		</style>
+	</head>
+	<body ng-controller="GalleryCtrl">
+		<div class="container">
+			<div class="page-header">
+				<h1>jQuery D3 Arc Tween Gauge</h1>
+				<p class="lead">A simple angular gauge implemented with D3.js</p>
+			</div>
+			
+			<section class="example" ng-repeat="example in examples" ng-class="{hide:examples.lenght==0}" ng-cloak>
+				<h2>{{example.title}}</h2>
+				<div class="row">
+					<div class="col-md-3 result"></div>
+					<div class="col-md-8">
+						<pre class="html"><code class="xml">{{example.html|newline}}</code></pre>
+						<pre class="js"><code class="javascript">{{example.js|newline}}</code></pre>
+					</div>
+				</div>
+			</section>
+			
+			<div class="page-footer">
+				<h2>Author</h2>
+				<p>
+					Indri Muska<br>
+					<a href="mailto:indrimuska@gmail.com">indrimuska@gmail.com</a>
+				</p>
+				<div>
+					<iframe src="https://ghbtns.com/github-btn.html?user=indrimuska&repo=jquery-editable-select&type=fork&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="30"></iframe>
+					<iframe src="https://ghbtns.com/github-btn.html?user=indrimuska&repo=jquery-editable-select&type=watch&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="100" height="30"></iframe>
+					<iframe src="https://ghbtns.com/github-btn.html?user=indrimuska&repo=jquery-editable-select&type=follow&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="210" height="30"></iframe>
+				</div>
+			</div>
+		</div>
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+		<script src="jquery-d3-arc-gauge.js"></script>
+		<script>
+		(function () {
+			angular
+				.module('arc-gauge-examples', [ ])
+				.filter('newline', function () {
+					return function (input) {
+						return input.replace(/\\n/g, "\n");
+					};
+				})
+				.controller('GalleryCtrl', [ '$scope', '$http', function ($scope, $http) {
+					var gallery = this;
+					$scope.examples = [];
+					$scope.$watch(function () {
+						$('pre code').each(function (i, block) { hljs.highlightBlock(block); });
+						$('.example').each(function () {
+							var example = $(this),
+								html    = example.find('.html').text(),
+								js      = example.find('.js').text(),
+								result  = example.find('.result');
+							result.html(html);
+							eval(js);
+						});
+					});
+					$http.get('examples.json').success(function (data) {
+						$scope.examples = data;
+					});
+				}]);
+		})();
+		</script>
+	</body>
+</html>

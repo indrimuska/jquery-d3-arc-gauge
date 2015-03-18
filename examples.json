@@ -1,0 +1,37 @@
+[
+	{
+		"title": "Basic usage",
+		"html":  "<div class=\"arc-gauge-1\"></div>",
+		"js":    "$('.arc-gauge-1').arcGauge({ value: 50 });"
+	},
+	{
+		"title": "Using data attributes",
+		"html":  "<div class=\"arc-gauge-2\" data-height=\"180\" data-value=\"50\"></div>",
+		"js":    "$('.arc-gauge-2').arcGauge();"
+	},
+	{
+		"title": "Custom colors",
+		"html":  "<div class=\"arc-gauge-3\" data-height=\"180\" data-value=\"50\"\\n   data-colors=\"#99cccc\" data-bg-color=\"#ffffcc\"></div>",
+		"js":    "$('.arc-gauge-3').arcGauge();"
+	},
+	{
+		"title": "Multiple instances",
+		"html":  "<div class=\"arc-gauge-4\" data-width=\"50\" data-height=\"50\" data-value=\"10\"></div>\\n<div class=\"arc-gauge-4\" data-width=\"50\" data-height=\"50\" data-value=\"25\"></div>\\n<div class=\"arc-gauge-4\" data-width=\"50\" data-height=\"50\" data-value=\"40\"></div>\\n<div class=\"arc-gauge-4\" data-width=\"50\" data-height=\"50\" data-value=\"55\"></div>\\n<div class=\"arc-gauge-4\" data-width=\"50\" data-height=\"50\" data-value=\"70\"></div>\\n<div class=\"arc-gauge-4\" data-width=\"50\" data-height=\"50\" data-value=\"85\"></div>",
+		"js":    "$('.arc-gauge-4').arcGauge();"
+	},
+	{
+		"title": "Live update (clock)",
+		"html": "<div class=\"arc-gauge-5\" data-height=\"180\" data-value=\"1\" data-max-value=\"60\"\\n   data-thickness=\"8\" data-start-angle=\"0\" data-end-angle=\"360\"></div>",
+		"js": "$('.arc-gauge-5').arcGauge();\\n\\nsetInterval(function () {\\n   // random value from clock\\n   var value = (new Date).getSeconds();\\n   // set the value\\n   $('.arc-gauge-5')[0].set(value);\\n}, 1000);"
+	},
+	{
+		"title": "Using a gradient",
+		"html":  "<div class=\"arc-gauge-6\" data-height=\"180\" data-value=\"25\"></div>",
+		"js":    "$('.arc-gauge-6').arcGauge({\\n   colors: {\\n      0:    '#003366', // 0%\\n      0.25: '#33cc00', // 25%\\n      0.5:  '#ffff66', // 50%\\n      0.75: '#ff9966', // 75%\\n      0.9:  '#ff3333'  // 100%\\n   }\\n});\\n\\nsetInterval(function () {\\n   var gauge = $('.arc-gauge-6')[0];\\n   // get current value + 25\\n   var value = gauge.get() + 25;\\n   // overflow check\\n   if (value > 100) value = 0;\\n   // set the value\\n   gauge.set(value);\\n}, 2000);"
+	},
+	{
+		"title": "Adding a text",
+		"html":  "<div class=\"arc-gauge-7\" data-height=\"180\" data-value=\"25\">\\n   <div class=\"arc-gauge-text\">\\n      <span class=\"value\">0</span>%\\n      <p class=\"small\">CPU</p>\\n   </div>\\n</div>",
+		"js":    "$('.arc-gauge-7').arcGauge({\\n   colors: {\\n      0:    '#003366', // 0%\\n      0.25: '#33cc00', // 25%\\n      0.5:  '#ffff66', // 50%\\n      0.75: '#ff9966', // 75%\\n      0.9:  '#ff3333'  // 100%\\n   },\\n   onchange: function (value) {\\n      $('.arc-gauge-text .value').text(value);\\n   }\\n});\\n\\nsetInterval(function () {\\n   var gauge = $('.arc-gauge-7')[0];\\n   // get current value + 25\\n   var value = gauge.get() + 25;\\n   // overflow check\\n   if (value > 100) value = 0;\\n   // set the value\\n   gauge.set(value);\\n}, 2000);"
+	}
+]
