@@ -138,13 +138,18 @@ $('#arc-gauge').arcGauge({
 You can set the option of the gauge simply by adding a `data` attribute in your HTML code.
 
 ```html
-<div class="arc-gauge-5" data-height="180" data-value="1" data-max-value="60"
-   data-thickness="8" data-start-angle="0" data-end-angle="360"></div>
+<div id="arc-gauge"
+  data-height="180"
+  data-value="1"
+  data-max-value="60"
+  data-thickness="8"
+  data-start-angle="0"
+  data-end-angle="360"></div>
 ```
 
 ## Methods
 
-To call a method you have to fetch first the gauge instance. Any method is attached to the container directly (pure javascript):
+To call a method you have first to fetch the single instance. Any method is attached to the container directly (pure javascript):
 
 ```javascript
 alert('Current value: ' + $('#arg-gauge')[0].get() );
