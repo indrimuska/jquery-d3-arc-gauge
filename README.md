@@ -20,6 +20,17 @@ $('#arc-gauge').arcGauge();
 
 ## Options
 
+You can set any option by passing it to the constructor:
+
+```javascript
+$('#arc-gauge').arcGauge({
+  class:    'temperature-gauge'
+  minValue: -20,
+  maxValue:  50,
+  value:     20
+});
+```
+
 <table>
 <thead>
   <tr>
@@ -122,6 +133,15 @@ $('#arc-gauge').arcGauge();
 </tbody>
 </table>
 
+### data-attributes support
+
+You can set the option of the gauge simply by adding a `data` attribute in your HTML code.
+
+```html
+<div class="arc-gauge-5" data-height="180" data-value="1" data-max-value="60"
+   data-thickness="8" data-start-angle="0" data-end-angle="360"></div>
+```
+
 ## Methods
 
 <table>
@@ -142,12 +162,3 @@ $('#arc-gauge').arcGauge();
   </tr>
 </tbody>
 </table>
-
-## data-attributes support
-
-You can set the option of the gauge simply by adding a `data` attribute in your HTML code.
-
-```html
-<div class="arc-gauge-5" data-height="180" data-value="1" data-max-value="60"
-   data-thickness="8" data-start-angle="0" data-end-angle="360"></div>
-```
