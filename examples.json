@@ -27,11 +27,11 @@
 	{
 		"title": "Using a gradient",
 		"html":  "<div class=\"arc-gauge-6\" data-height=\"180\" data-value=\"25\"></div>",
-		"js":    "$('.arc-gauge-6').arcGauge({\\n   colors: {\\n      0:    '#003366', // 0%\\n      0.25: '#33cc00', // 25%\\n      0.5:  '#ffff66', // 50%\\n      0.75: '#ff9966', // 75%\\n      0.9:  '#ff3333'  // 100%\\n   }\\n});\\n\\nsetInterval(function () {\\n   var gauge = $('.arc-gauge-6')[0];\\n   // get current value + 25\\n   var value = gauge.get() + 25;\\n   // overflow check\\n   if (value > 100) value = 0;\\n   // set the value\\n   gauge.set(value);\\n}, 2000);"
+		"js":    "$('.arc-gauge-6').arcGauge({\\n   colors: {\\n      0:    '#003366', // 0%\\n      0.25: '#33cc00', // 25%\\n      0.5:  '#ffff66', // 50%\\n      0.75: '#ff9966', // 75%\\n      0.9:  '#ff3333'  // 90%\\n   }\\n});\\n\\nsetInterval(function () {\\n   var gauge = $('.arc-gauge-6')[0];\\n   // get current value + 25\\n   var value = gauge.get() + 25;\\n   // overflow check\\n   if (value > 100) value = 0;\\n   // set the value\\n   gauge.set(value);\\n}, 2000);"
 	},
 	{
 		"title": "Adding a text",
 		"html":  "<div class=\"arc-gauge-7\" data-height=\"180\" data-value=\"25\">\\n   <div class=\"arc-gauge-text\">\\n      <span class=\"value\">0</span>%\\n      <p class=\"small\">CPU</p>\\n   </div>\\n</div>",
-		"js":    "$('.arc-gauge-7').arcGauge({\\n   colors: {\\n      0:    '#003366', // 0%\\n      0.25: '#33cc00', // 25%\\n      0.5:  '#ffff66', // 50%\\n      0.75: '#ff9966', // 75%\\n      0.9:  '#ff3333'  // 100%\\n   },\\n   onchange: function (value) {\\n      $('.arc-gauge-text .value').text(value);\\n   }\\n});\\n\\nsetInterval(function () {\\n   var gauge = $('.arc-gauge-7')[0];\\n   // get current value + 25\\n   var value = gauge.get() + 25;\\n   // overflow check\\n   if (value > 100) value = 0;\\n   // set the value\\n   gauge.set(value);\\n}, 2000);"
+		"js":    "$('.arc-gauge-7').arcGauge({\\n   colors: {\\n      0:    '#003366', // 0%\\n      0.25: '#33cc00', // 25%\\n      0.5:  '#ffff66', // 50%\\n      0.75: '#ff9966', // 75%\\n      0.9:  '#ff3333'  // 90%\\n   },\\n   onchange: function (value) {\\n      $('.arc-gauge-text .value').text(value);\\n   }\\n});\\n\\nsetInterval(function () {\\n   var gauge = $('.arc-gauge-7')[0];\\n   // get current value + 25\\n   var value = gauge.get() + 25;\\n   // overflow check\\n   if (value > 100) value = 0;\\n   // set the value\\n   gauge.set(value);\\n}, 2000);"
 	}
 ]
