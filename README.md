@@ -1,6 +1,8 @@
 
 # jquery-d3-arc-gauge
 
+[![Join the chat at https://gitter.im/indrimuska/jquery-d3-arc-gauge](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/indrimuska/jquery-d3-arc-gauge?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 jQuery D3 Arc Gauge is a jQuery plugin that makes use of the D3.js library to create a simple radial (or angular) gauge.
 
 ![gauge](https://cloud.githubusercontent.com/assets/1561134/6902956/6d2bc4d2-d717-11e4-85c7-c43638844841.png)
